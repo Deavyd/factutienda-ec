@@ -1,0 +1,18 @@
+{
+  "$schema": "https://railway.app/railway.schema.json",
+  "build": {
+    "buildCommand": "pip install -r requirements.txt"
+  },
+  "deploy": {
+    "startCommand": "uvicorn app.main:app --host 0.0.0.0 --port $PORT",
+    "healthcheckPath": "/health"
+  },
+  "env": {
+    "PORT": "$PORT",
+    "DATABASE_URL": "$DATABASE_URL",
+    "SECRET_KEY": "$SECRET_KEY",
+    "AMBIENTE_SRI": "$AMBIENTE_SRI",
+    "SRI_CERT_PATH": "$SRI_CERT_PATH",
+    "SRI_CERT_PASSWORD": "$SRI_CERT_PASSWORD"
+  }
+}

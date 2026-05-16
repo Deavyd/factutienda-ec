@@ -1,0 +1,25 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+alembic
+pydantic
+pydantic-settings
+# Opcional para MODO_DESPLIEGUE=CLOUD
+psycopg[binary]
+python-jose[cryptography]
+passlib[bcrypt]
+python-multipart
+email-validator
+lxml
+signxml>=4,<5
+zeep
+reportlab
+cryptography
+pytest
+qrcode
+python-barcode
+Pillow
+openpyxl
+pandas
+APScheduler
+requests

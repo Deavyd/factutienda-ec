@@ -1,0 +1,54 @@
+Análisis: qué está, qué falta
+Backend: 37 tablas — todas existen con modelo y migración
+No falta ninguna tabla. Todas las 37 tienen su clase en app/models/, su migración en alembic/versions/, y se crean con alembic upgrade head.
+Frontend vs Backend: lo que está bien
+Módulo	Página frontend	Hook
+Ventas POS	✅	✅
+Caja	✅ (facturas)	✅
+Productos	✅	✅
+Categorías	✅	✅
+Clientes	✅	✅
+Proveedores	✅	✅
+Notas Crédito	✅	❌ sin hook
+Proformas	✅	✅
+Cuentas Cobrar	✅	❌ directo API
+Etiquetas	✅	❌ directo API
+Usuarios	✅	✅
+Establecimientos	✅	✅
+Reportes	✅	✅
+Lo que falta en el frontend (backend ya lo tiene)
+Módulo backend	Router	Modelo
+Cuentas por Pagar	/cuentas (pagar)	cuentas_pagar
+Retenciones	/retenciones	retenciones
+Liquidaciones Compra	/liquidaciones	liquidaciones_compra
+Guías Remisión	/guias-remision	guias_remision
+Importación Productos	/productos/importar-*	—
+Tarifas IVA	/tarifas-iva	tarifas_iva
+Unidades Medida	/unidades	unidades_medida
+Descuentos	/descuentos	descuentos
+Listas de Precio	/precios	listas_precio
+Lotes	/lotes	lotes
+Auditoría	/auditoria	auditoria
+Notificaciones	/notificaciones	notificaciones
+Sincronización	/sync	cola_sincronizacion
+Backups	/sistema/backup*	—
+Recomendación para cerrar los faltantes
+Críticos (impactan operación diaria)
+1. 
+Cuentas por Pagar — el contador y el dueño la necesitan sí o sí
+2. 
+Retenciones — obligatorio para declarar SRI
+3. 
+Importación de Productos — ya lo implementamos en backend, solo falta botón en sidebar y página básica
+Importantes (completan flujo SRI)
+4. 
+Liquidaciones de Compra
+5. 
+Guías de Remisión
+Catálogo/configuración (no urgente pero necesario)
+6. 
+Tarifas IVA, Unidades, Descuentos, Listas de Precio — pueden ir como tabs dentro de Configuración o Productos
+Administrativo
+7. 
+Lotes, Auditoría, Notificaciones, Sync, Backups — pueden esperar
+Si querés, en el siguiente paso implemento las 7 páginas críticas + importantes (Cuentas por Pagar, Retenciones, Liquidaciones, Guías, Importación) y las agrego al sidebar, dejando el resto catalogado para después.
